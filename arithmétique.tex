@@ -1,0 +1,96 @@
+\documentclass{mybourbaki}
+\titre{Arithmétique dans $\Z$}
+\renewcommand{\vect}[1]{\boldsymbol{#1}}
+\renewcommand{\div}{\mid}
+\begin{document}
+
+\section{Notions élémentaires}
+\subsection{Sous-groupe de $\Z$}
+
+\theoreme{
+Tout sous-groupe de $\Z$ est de la forme $a\Z$ avec $a\in \Z$.
+}{}
+\demonstration{
+Soit $G$ un sous-groupe de $\Z$. Si $G$ est réduit à $\ens{0}$ alors $G = 0\Z$.
+
+Sinon, soit $x = |x|\in G$ l'élément minimal de $G$ non nul (qui existe puisque $G\dans \Z$). $x\Z \dans G$ puisque $G$ est un groupe.
+
+Soit $y\in G$. Par division euclidienne, il existe un unique couple $(a,b)\in \Z\times\ens{0,1,\ldots,x-1}$ tel que $y =ax+b$. On a $y-ax\in G$ mais aussi $y-ax = b \in G$. Or $b<x$ donc $b=0$ et donc $y\in x\Z$.
+}{}
+On notera $x\Z = \vect{x}$.
+
+\subsection{$\pgcd$ et $\ppcm$}
+
+\definition{ 
+Soient $a,b\in \Z$. On dit de manière équivalente : \[ a \div b \ssi \vect{b} \dans \vect{a} \ssi \exists c \in \Z, a = cb.\]
+}{}
+
+\definition{ Soient $a,b\in \Z$. 
+
+On a que $\vect{a} + \vect{b}$ est un sous-groupe de $\Z$ de la forme $\vect{d}$ avec $d\in \Z$. On note $\pgcd(a,b) = d$.
+
+$\vect{a}\inter \vect{b}$ est un sous-groupe de $\Z$ de la forme $\vect{m}$ avec $m\in \N$. On note $\ppcm(a,b) = m$.
+}{}
+
+\proposition{ 
+Soient $a,b\in \Z$. On a les propositions suivantes :
+\begin{enumerate}
+\item $\pgcd(a,b) = d \ssi \left( \forall x\in \Z, x\div a \et x\div b \ssi x \div d \right)$ ;
+\item $\ppcm(a,b) = m \ssi \left( \forall x\in \Z, a \div  x \et b \div x \ssi m \div x\right)$.
+\end{enumerate}
+}{}
+\demonstration{ 
+Soient $a,b\in \Z$.
+\begin{enumerate}
+\item Soit $x\in \Z$. $x\div a \et x\div b \ssi \vect{a}\dans \vect{x} \et \vect{b}\dans \vect{x}\ssi \vect{a} + \vect{b} \dans \vect{x} \ssi x \div \pgcd(a,b)$.
+\item Soit $x\in \Z$. $a\div x \et b \div x \ssi \vect{x} \dans \vect{a} \et \vect{x} \dans \vect{b} \ssi \vect{x} \dans \vect{a}\inter \vect{b} \ssi \ppcm(a,b)\div x$.
+\end{enumerate}
+}{}
+
+\theoreme{ 
+Si $a,b\in \Z$ alors il existe $u,v\in \Z$ tels que $au + bv = \pgcd(a,b)$.
+
+En particulier, si $a$ et $b$ sont premiers entre eux alors $au + bv = 1$.
+}{Identité de Bezout}
+
+\section{Notions modulaires}
+
+\subsection{Passage au quotient}
+\definition{ 
+Soit $a\in \Z$, $\Z/\vect{a}$ est le sous-ensemble de $\Z$ obtenu par le quotient de la relation d'équivalence $\cdot \div \cdot$ de $\Z$ par $\vect{a}$.
+
+Si $x\in \Z$ alors $\barre{x}$ est la classe d'équivalence de $x$ dans $\Z/\vect{a}$.}{}
+
+Si $\bar{x} = \bar{y}\in \Z/\vect{a}$ alors pour $x,y$ des représentants de leurs classes respectives : \[x = y + ua\]avec $u\in \Z$.
+
+\proposition{ 
+Soit $a\in \N$, $\Z/\vect{a} = \ens{\barre{0},\barre{1},\ldots,\barre{a-1}}$.
+}{}
+
+On étend naturellement les opérations sur $\Z$ à $\Z/\vect{a}$.
+
+\theoreme{ 
+$\Z/\vect{p}$ est un groupe si, et seulement si, $p$ est premier.
+}{}
+\demonstration{ 
+Soit $p$ premier et $\barre{x}\in \Z/\vect{p}$. Soit $x$ un représentant de $\barre{x}$ dans $\Z$.
+\begin{enumerate}
+\item Soit $x$ est nul et c'est l'élément neutre d'inverse lui-même ;
+\item Soit $x$ est non nul et on a \[ x = ap\]avec $a\in \Z^*$. \[-ap = (-1)ap \] et donc 
+\end{enumerate}
+}{}
+
+\end{document}
+
+
+
+
+
+
+
+
+
+
+
+
+
