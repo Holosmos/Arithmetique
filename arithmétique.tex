@@ -2,6 +2,7 @@
 \titre{Arithmétique dans $\Z$}
 \renewcommand{\vect}[1]{\boldsymbol{#1}}
 \renewcommand{\div}{\mid}
+\newcommand{\card}{\sharp}
 \begin{document}
 
 \section{Notions élémentaires}
@@ -51,34 +52,94 @@ Soient $a,b\in \Z$.
 Si $a,b\in \Z$ alors il existe $u,v\in \Z$ tels que $au + bv = \pgcd(a,b)$.
 
 En particulier, si $a$ et $b$ sont premiers entre eux alors $au + bv = 1$.
-}{Identité de Bezout}
+}{Identité de \textsc{Bezout}}
 
 \section{Notions modulaires}
 
 \subsection{Passage au quotient}
 \definition{ 
-Soit $a\in \Z$, $\Z/\vect{a}$ est le sous-ensemble de $\Z$ obtenu par le quotient de la relation d'équivalence $\cdot \div \cdot$ de $\Z$ par $\vect{a}$.
+Soit $a\in \Z$, $\Z/\vect{a}$ est le sous-ensemble de $\Z$ obtenu par le quotient de $\Z$ par $\vect{a}$.
 
 Si $x\in \Z$ alors $\barre{x}$ est la classe d'équivalence de $x$ dans $\Z/\vect{a}$.}{}
 
-Si $\bar{x} = \bar{y}\in \Z/\vect{a}$ alors pour $x,y$ des représentants de leurs classes respectives : \[x = y + ua\]avec $u\in \Z$.
+Si $\bar{x} = \bar{y}\in \Z/\vect{a}$ alors pour $x,y$ des représentants de leurs classes respectives : \[x = y + ua\]avec $u\in \Z$. Il arrive de le noter : \[ x \congru y \mod a.\]
 
 \proposition{ 
 Soit $a\in \N$, $\Z/\vect{a} = \ens{\barre{0},\barre{1},\ldots,\barre{a-1}}$.
 }{}
 
-On étend naturellement les opérations sur $\Z$ à $\Z/\vect{a}$.
+On étend naturellement les opérations sur $\Z$ à $\Z/\vect{a}$ en identifiant les opérations de $\Z$ à $\Z/\vect{a}$. On pourra alors confondre $x$ et son représentant $\barre{x}$ dans $\Z/\vect{a}$.
 
-\theoreme{ 
-$\Z/\vect{p}$ est un groupe si, et seulement si, $p$ est premier.
-}{}
-\demonstration{ 
-Soit $p$ premier et $\barre{x}\in \Z/\vect{p}$. Soit $x$ un représentant de $\barre{x}$ dans $\Z$.
+\proposition{ 
+Soient $x,y\in \Z$ :
 \begin{enumerate}
-\item Soit $x$ est nul et c'est l'élément neutre d'inverse lui-même ;
-\item Soit $x$ est non nul et on a \[ x = ap\]avec $a\in \Z^*$. \[-ap = (-1)ap \] et donc 
+\item $\barre{x+y} = \barre{x} + \barre{y}$ ;
+\item $\barre{xy} = \barre{x}\cdot\barre{y}$.
 \end{enumerate}
 }{}
+\demonstration{
+Soient $x,y\in \Z$.
+\begin{enumerate}
+\item si $x= ua + b$ et $y = va + c$ tels que dans les divisions euclidiennes respectives alors \[ \barre{x+y} = \barre{(u+v)a + b+c} = \barre{b+c} = \barre{b} + \barre{c} = \barre{x} + \barre{y} ;\]
+\item de même : \[ \barre{xy} = \barre{(ua +b)(va+c)} = \barre{a(uva + uc + bv)+bc} = \barre{bc} =\barre{b}\cdot \barre{c} = \barre{x} \cdot \barre{y}.\]
+\end{enumerate}
+}{}
+
+\subsection{Inverse modulaire}
+
+\definition{ 
+L'inverse par la multiplication modulo $n\in \Z$ d'un entier $a\in \Z$ est un entier $u\in \Z$ satisfaisant à \[ a^{-1} \congru u \mod n.\] C'est-à-dire de manière équivalente : \[ au \congru 1 \mod n.\]
+}{}
+
+\proposition{
+$a\in \Z$ est inversible dans $\Z/\vect{n}$ si, et seulement si, $n$ est premier avec $a$.
+}{}
+\demonstration{ Soient $a,u,n,m\in \Z$.
+\[ au \congru 1 \mod n \ssi au = 1 +mn \ssi au - mn = 1\] ce qui revient à dire que $\pgcd(a,n) = 1$.
+}{}
+
+\theoreme{ 
+$\Z/\vect{p}$ est un corps si, et seulement si, $p$ est premier.
+}{}
+\demonstration{ 
+$\Z/\vect{p}$ est un anneau. Or $x\in \Z/\vect{p}$ est inversible si $x$ est premier avec $p$ et donc tout $x$ est inversible si $p$ est premier.
+}{}
+
+\subsection{Petit théorème de \textsc{Fermat}}
+
+\theoreme{ 
+Soient $p$ un nombre premier et $a\in \Z$. Alors : \[ a^{p}\congru a \mod p.\]
+}{Petit théorème de \textsc{Fermat}}
+\demonstration{ 
+On procède par récurrence sur $a$ :
+\begin{enumerate}
+\item Pour $a= 1$ c'est vérifié.
+\item Pour tout $k\in \Z$ on a : \[(k+1)^{p} \congru k^{p} + 1 \mod p. \] En effet les coefficients binomiaux à l'exceptions des premier et dernier termes disparaissent en raison d'un facteur proportionnel à $p$.
+\item Si la proposition est vérifiée pour $a=k$ alors pour $a=k+1$ c'est également vérifié en raison du résultat précédent : \[ (k+1)^{p}\congru k^{p} + 1 \congru k +1 \mod p.\]
+\end{enumerate}
+}{}
+
+On peut aller plus loin en généralisant ce résultat :
+\theoreme{ 
+Soit $n>0$ et $a$ entier premier avec $n$ alors :
+\[ a^{\varphi(n)} \congru 1 \mod n.\]
+}{Théorème d'\textsc{Euler}}
+Avec bien entendu $\varphi$ l'indicatrice d'\textsc{Euler}.
+
+Pour démontrer ce résultat on aura besoin du théorème de \textsc{Lagrange} :
+\theoreme{ 
+Pour tout groupe $G$ et tout sous-groupe $H$ de $G$, l'ordre (i.e. le cardinal) de $H$ divise l'ordre de $G$ : \[\card H \div \card G. \]
+}{Théorème de \textsc{Lagrange}}
+\demonstration{
+Le groupe $(\Z/\vect{n})^{*}$ des entiers inversibles de l'anneau $\Z/\vect{n}$ est constitué des classes d'entiers inversibles modulo $n$, i.e. premiers avec $n$. Il y en a exactement $\varphi(n)$ donc ce groupe est d'ordre $\varphi(n)$.
+
+Puisque $a$ est premier avec $n$, $\barre{a}$ est dans le groupe $(\Z/\vect{n})^*$. $\barre{a}$ a donc un ordre dans ce groupe, disons $m$ et cet ordre divise $\varphi(n)$ tel que $mk =\varphi(n)$. On a donc : \[ a^{\varphi(n)} \congru a^{mk} \congru \left(a^{m}\right)^{k} \congru 1^{k} \congru 1 \mod n.\]
+}{Théorème d'\textsc{Euler}}
+
+\demonstration{
+Le cardinal de l'ensemble $G/H$ est appelé \textit{indice} de $H$ dans $G$ et est noté $[G:H]$. 
+De plus, ces classes forment une partition de $G$ et chacune d'entre elles a le même cardinal que $H$. On a alors : \[\card G = \card H \times [G:H]. \]
+}{Théorème de \textsc{Lagrange}}
 
 \end{document}
 
