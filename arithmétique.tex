@@ -5,7 +5,46 @@
 \newcommand{\card}{\sharp}
 \begin{document}
 
-\section{Notions élémentaires}
+\section{Notions de groupes}
+
+\subsection{Groupe abstrait}
+
+\subsection{Groupes cycliques et monogènes}
+
+\definition{ 
+Si un groupe multiplicatif $G$ est engendré par l'un de ses éléments $g$ alors il est dit :
+\begin{itemize}
+\item \textit{cyclique} si $G$ est fini ;
+\item \textit{monogène} sinon.
+\end{itemize}
+Un tel élément $g$ est un \textit{générateur} de $G$.
+}{}
+
+
+Une première proposition fondamentale :
+\theoreme{ 
+Tout groupe monogène  $G$ est isomorphe à $\Z$. Tout groupe cyclique est isomorphe à $\Z/n\Z$ pour un certain $n\in \Z$.
+}{}
+\demonstration{ 
+Il suffit de donner de bons isomorphismes :
+\begin{enumerate}
+\item Si $G$ est monogène alors l'homomorphisme : \[ \chi : g^n \donne  n\] est une bijection de $G$ dans $\Z$ ;
+\item si $G$ est cyclique alors l'homomorphisme $\chi$ est un isomorphisme de $G$ dans $\Z/n\Z$.
+\end{enumerate}
+}{}
+
+\proposition{ 
+Tout groupe monogène ou cyclique est abélien.
+}{}
+\demonstration{ 
+En effet : \[g^{n}g^{m} = g^{n+m} = g^{m+n} = g^{m}g^{n}. \]
+}{}
+
+\proposition{ 
+Si $f: G \vers H$ est homomorphisme surjectif de groupes et si $G$ est un groupe engendré par $g$ alors $H$ est engendré par $f(g)$.
+}{}
+
+\section{Notions en arithmétique}
 \subsection{Sous-groupe de $\Z$}
 
 \theoreme{
@@ -115,10 +154,11 @@ On procède par récurrence sur $a$ :
 \begin{enumerate}
 \item Pour $a= 1$ c'est vérifié.
 \item Pour tout $k\in \Z$ on a : \[(k+1)^{p} \congru k^{p} + 1 \mod p. \] En effet les coefficients binomiaux à l'exceptions des premier et dernier termes disparaissent en raison d'un facteur proportionnel à $p$.
-\item Si la proposition est vérifiée pour $a=k$ alors pour $a=k+1$ c'est également vérifié en raison du résultat précédent : \[ (k+1)^{p}\congru k^{p} + 1 \congru k +1 \mod p.\]
+\item Si la proposition est vérifiée pour $a=k$ alors pour $a=k+1$ elle est également vérifiés en raison du résultat précédent : \[ (k+1)^{p}\congru k^{p} + 1 \congru k +1 \mod p.\]
 \end{enumerate}
 }{}
 
+\paragraph{Première généralisation}
 On peut aller plus loin en généralisant ce résultat :
 \theoreme{ 
 Soit $n>0$ et $a$ entier premier avec $n$ alors :
@@ -140,6 +180,16 @@ Puisque $a$ est premier avec $n$, $\barre{a}$ est dans le groupe $(\Z/\vect{n})^
 Le cardinal de l'ensemble $G/H$ est appelé \textit{indice} de $H$ dans $G$ et est noté $[G:H]$. 
 De plus, ces classes forment une partition de $G$ et chacune d'entre elles a le même cardinal que $H$. On a alors : \[\card G = \card H \times [G:H]. \]
 }{Théorème de \textsc{Lagrange}}
+
+
+\paragraph{Seconde généralisation}Une seconde généralisation de ce résultat est possible. Elle est donnée par :
+
+\theoreme{ 
+Si $p$ est un nombre premier et $m$ et $n$ tels que \[m \congru n \mod p-1,\] alors pour tout $a\in \Z$ on a : \[ a^{m}\congru a^{n}\mod p.\]
+}{}
+\demonstration{ 
+En effet, soit $a$ est divisible par $p$ et les deux membres sont égaux à $0$, soit $a$ ne l'est pas et en supposant $n>m$ : \[ a^{n-m} = \left(a^{p-1}\right)^{(n-m)/(p-1)} = 1^{(n-m)/(p-1)} = 1.\]
+}{}
 
 \end{document}
 
