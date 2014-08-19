@@ -9,6 +9,26 @@
 
 \subsection{Groupe abstrait}
 
+\definition{ 
+Un groupe est la donnée de deux éléments : un ensemble $G$ et une loi de composition interne (généralement $+$ ou $\times$) $\cdot$ telle que : 
+\begin{enumerate}
+\item $\exists ! e \in G,\forall x \in G, e\cdot x = x \cdot e = x$ ;
+\item $\forall x \in G, \exists ! y \in G, x \cdot y = y \cdot x = e$ ;
+\item $\forall x,y,z \in G, x \cdot (y\cdot z ) = (x\cdot y) \cdot z$.
+\end{enumerate}
+}{}
+
+\definition{ 
+Si : \[ \forall x,y \in G, x \cdot y = y \cdot x\] alors on dit que le groupe $(G,\cdot)$ est abélien (ou commutatif).
+}{}
+
+\proposition{
+L'élément symétrique (inverse ou opposé) est unique.
+}{}
+\demonstration{ 
+En effet, soient $y,z \in G$ tels que pour $x\in G$ : $x \cdot y = z \cdot x = e$. Alors : \[ z \cdot x \cdot y = z = y.\]
+}{}
+
 \subsection{Groupes cycliques et monogènes}
 
 \definition{ 
